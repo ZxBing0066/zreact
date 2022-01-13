@@ -1,0 +1,8 @@
+.drag-over-up {
+    border-top: 3px solid rgb(204, 204, 204);
+    transition: border 0.2s;
+}
+.drag-over-down {
+    border-bottom: 3px solid rgb(204, 204, 204);
+    transition: border 0.2s;
+}

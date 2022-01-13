@@ -1,0 +1,42 @@
+{
+  "name": "z-use-drag",
+  "version": "0.0.1",
+  "description": "A tiny react hook for drag move elements",
+  "main": "cjs/index.cjs",
+  "module": "esm/index.js",
+  "types": "./types/index.d.ts",
+  "scripts": {
+    "build": "pnpx tsc && pnpx rollup -c rollup.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ZxBing0066/zreact.git",
+    "directory": "packages/use-drag"
+  },
+  "keywords": [
+    "react",
+    "drag",
+    "move",
+    "sort",
+    "hook"
+  ],
+  "author": "ZxBing0066",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZxBing0066/zreact/issues"
+  },
+  "homepage": "https://github.com/ZxBing0066/zreact#readme",
+  "files": [
+    "cjs",
+    "esm",
+    "umd",
+    "types"
+  ],
+  "sideEffects": false,
+  "devDependencies": {
+    "react": "^16.3"
+  },
+  "peerDependencies": {
+    "react": "^16.3 || ^17"
+  }
+}
