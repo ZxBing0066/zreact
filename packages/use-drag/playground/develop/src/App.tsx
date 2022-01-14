@@ -16,19 +16,22 @@ const DragList = () => {
             return cloneList;
         });
         console.log(source, target);
-        
     }, []);
-    const onDragOver = useCallback((source, target) => {
+    const onDragEnter = useCallback((source, target) => {
+        console.log('enter');
+
         const i = +source.dataset['index'];
         const j = +target.dataset['index'];
         target.classList.add(i > j ? 'drag-over-up' : 'drag-over-down');
     }, []);
     const onDragLeave = useCallback((source, target) => {
+        console.log('leave');
+
         const i = +source.dataset['index'];
         const j = +target.dataset['index'];
         target.classList.remove(i > j ? 'drag-over-up' : 'drag-over-down');
     }, []);
-    const [sourceProps, targetProps] = useDragDrop({ onDrop, onDragOver, onDragLeave });
+    const [sourceProps, targetProps] = useDragDrop({ onDrop, onDragEnter, onDragLeave, ignoreChildEnterLeave: true });
 
     return (
         <div className='App'>
