@@ -31,7 +31,13 @@ const DragList = () => {
         const j = +target.dataset['index'];
         target.classList.remove(i > j ? 'drag-over-up' : 'drag-over-down');
     }, []);
-    const [sourceProps, targetProps] = useDragDrop({ onDrop, onDragEnter, onDragLeave, ignoreChildEnterLeave: true });
+    const [sourceProps, targetProps] = useDragDrop({
+        onDrop,
+        onDragEnter,
+        onDragLeave,
+        ignoreChildEnterLeave: true,
+        ignoreSelf: true
+    });
 
     return (
         <div className='App'>

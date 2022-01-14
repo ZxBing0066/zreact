@@ -4,14 +4,18 @@ const useDragDrop = ({
     onDrop,
     onDragEnter,
     onDragLeave,
+    onDragOver,
     effectAllowed,
-    ignoreChildEnterLeave
+    ignoreChildEnterLeave,
+    ignoreSelf
 }: {
     onDrop?: (source: Element, target: Element) => void;
     onDragEnter?: (source: Element, target: Element) => void;
     onDragLeave?: (source: Element, target: Element) => void;
+    onDragOver?: (source: Element, target: Element) => void;
     effectAllowed?: 'move';
     ignoreChildEnterLeave?: boolean;
+    ignoreSelf?: boolean;
 }) => {
     const sourceDomRef = useRef(null);
     const prevTargetDomRef = useRef(null);
@@ -32,43 +36,53 @@ const useDragDrop = ({
         prevTargetDomRef.current = null;
     }, []);
 
+    const checkEvent = useCallback(e => {
+        if (!sourceDomRef.current) return false;
+        if (ignoreSelf && sourceDomRef.current === e.currentTarget) return false;
+        return true;
+    }, []);
+
     const handleDrop = useCallback(
         e => {
-            if (!sourceDomRef.current || sourceDomRef.current === e.currentTarget) return;
-            onDrop?.(sourceDomRef.current, e.currentTarget);
+            if (!checkEvent(e)) return;
+            onDrop?.(sourceDomRef.current!, e.currentTarget);
         },
         [onDrop]
     );
+    const handleDragOver = useCallback(e => {
+        if (!checkEvent(e)) return;
+        e.preventDefault();
+        onDragOver?.(sourceDomRef.current!, e.currentTarget);
+    }, []);
     const handleDragEnter = useCallback(
         e => {
-            e.preventDefault();
-            if (!sourceDomRef.current || sourceDomRef.current === e.currentTarget) return;
+            if (!checkEvent(e)) return;
             if (ignoreChildEnterLeave) {
                 if (e.currentTarget === prevTargetDomRef.current) {
                     enterCounterRef.current++;
                 } else {
                     enterCounterRef.current = 1;
-                    onDragEnter?.(sourceDomRef.current, e.currentTarget);
+                    onDragEnter?.(sourceDomRef.current!, e.currentTarget);
                 }
                 prevTargetDomRef.current = e.currentTarget;
                 return;
             }
-            onDragEnter?.(sourceDomRef.current, e.currentTarget);
+            onDragEnter?.(sourceDomRef.current!, e.currentTarget);
         },
         [onDragEnter]
     );
     const handleDragLeave = useCallback(
         e => {
-            if (!sourceDomRef.current || sourceDomRef.current === e.currentTarget) return;
+            if (!checkEvent(e)) return;
             if (ignoreChildEnterLeave && e.currentTarget === prevTargetDomRef.current) {
                 enterCounterRef.current--;
                 if (enterCounterRef.current <= 0) {
-                    onDragLeave?.(sourceDomRef.current, e.currentTarget);
+                    onDragLeave?.(sourceDomRef.current!, e.currentTarget);
                     prevTargetDomRef.current = null;
                 }
                 return;
             }
-            onDragLeave?.(sourceDomRef.current, e.currentTarget);
+            onDragLeave?.(sourceDomRef.current!, e.currentTarget);
         },
         [onDragLeave]
     );
@@ -81,6 +95,7 @@ const useDragDrop = ({
     const targetProps = {
         onDrop: handleDrop,
         onDragEnter: handleDragEnter,
+        onDragOver: handleDragOver,
         onDragLeave: handleDragLeave
     };
     return [sourceProps, targetProps];
