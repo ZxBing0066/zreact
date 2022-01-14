@@ -6,3 +6,19 @@
     border-bottom: 3px solid rgb(204, 204, 204);
     transition: border 0.2s;
 }
+
+.drag-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 192, 203, 0.479);
+}
+.drop-area {
+    width: 300px;
+    height: 300px;
+    border: 1px solid #ccc;
+}
+
+.drop-area.drag-over {
+    background-color: rgba(0, 0, 255, 0.199);
+}

@@ -15,7 +15,7 @@ const useDragDrop = ({
 
     const handleDragStart = useCallback(
         e => {
-            sourceDomRef.current = e.target;
+            sourceDomRef.current = e.currentTarget;
             e.dataTransfer.effectAllowed = effectAllowed;
         },
         [effectAllowed]
@@ -26,23 +26,25 @@ const useDragDrop = ({
 
     const handleDrop = useCallback(
         e => {
-            if (!sourceDomRef.current || sourceDomRef.current === e.target) return;
-            onDrop?.(sourceDomRef.current, e.target);
+            if (!sourceDomRef.current || sourceDomRef.current === e.currentTarget) return;
+            onDrop?.(sourceDomRef.current, e.currentTarget);
         },
         [onDrop]
     );
     const handleDragOver = useCallback(
         e => {
             e.preventDefault();
-            if (!sourceDomRef.current || sourceDomRef.current === e.target) return;
-            onDragOver?.(sourceDomRef.current, e.target);
+            if (!sourceDomRef.current || sourceDomRef.current === e.currentTarget) return;
+
+            debugger;
+            onDragOver?.(sourceDomRef.current, e.currentTarget);
         },
         [onDragOver]
     );
     const handleDragLeave = useCallback(
         e => {
-            if (!sourceDomRef.current || sourceDomRef.current === e.target) return;
-            onDragLeave?.(sourceDomRef.current, e.target);
+            if (!sourceDomRef.current || sourceDomRef.current === e.currentTarget) return;
+            onDragLeave?.(sourceDomRef.current, e.currentTarget);
         },
         [onDragLeave]
     );
