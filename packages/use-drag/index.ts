@@ -6,6 +6,7 @@ const useDragDrop = ({
     onDragLeave,
     onDragOver,
     effectAllowed,
+    dropEffect,
     ignoreChildEnterLeave,
     ignoreSelf
 }: {
@@ -13,7 +14,8 @@ const useDragDrop = ({
     onDragEnter?: (source: Element, target: Element) => void;
     onDragLeave?: (source: Element, target: Element) => void;
     onDragOver?: (source: Element, target: Element) => void;
-    effectAllowed?: 'move';
+    effectAllowed?: DataTransfer['effectAllowed'];
+    dropEffect?: DataTransfer['dropEffect'];
     ignoreChildEnterLeave?: boolean;
     ignoreSelf?: boolean;
 }) => {
@@ -57,6 +59,7 @@ const useDragDrop = ({
     const handleDragEnter = useCallback(
         e => {
             if (!checkEvent(e)) return;
+            e.dataTransfer.dropEffect = dropEffect;
             if (ignoreChildEnterLeave) {
                 if (e.currentTarget === prevTargetDomRef.current) {
                     enterCounterRef.current++;
