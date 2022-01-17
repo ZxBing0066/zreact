@@ -1,6 +1,8 @@
 import { useCallback, useRef } from 'react';
 
 const useDragDrop = ({
+    onDragStart,
+    onDragEnd,
     onDrop,
     onDragEnter,
     onDragLeave,
@@ -10,6 +12,8 @@ const useDragDrop = ({
     ignoreChildEnterLeave,
     ignoreSelf
 }: {
+    onDragStart?: (source: Element) => void;
+    onDragEnd?: (source: Element) => void;
     onDrop?: (source: Element, target: Element) => void;
     onDragEnter?: (source: Element, target: Element) => void;
     onDragLeave?: (source: Element, target: Element) => void;
@@ -29,6 +33,7 @@ const useDragDrop = ({
             e.dataTransfer.effectAllowed = effectAllowed;
             enterCounterRef.current = 0;
             prevTargetDomRef.current = null;
+            onDragStart?.(e.currentTarget);
         },
         [effectAllowed]
     );
@@ -36,6 +41,7 @@ const useDragDrop = ({
         sourceDomRef.current = null;
         enterCounterRef.current = 0;
         prevTargetDomRef.current = null;
+        onDragEnd?.(e.currentTarget);
     }, []);
 
     const checkEvent = useCallback(e => {
