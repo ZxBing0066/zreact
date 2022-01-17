@@ -1,0 +1,11 @@
+@import './token.scss';
+
+body {
+    padding: 16px;
+    background-color: $color-bg;
+}
+
+.playground {
+    border: 1px solid $color-dark;
+    padding: 8px;
+}

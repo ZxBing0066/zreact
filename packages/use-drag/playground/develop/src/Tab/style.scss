@@ -1,0 +1,16 @@
+@import '../token.scss';
+
+.tab {
+    .title-list {
+        display: flex;
+
+        .title {
+            padding: 4px 8px;
+            border: 1px solid $color-dark;
+            cursor: pointer;
+            &[data-active='true'] {
+                background-color: $color-active;
+            }
+        }
+    }
+}

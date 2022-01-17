@@ -1,0 +1,23 @@
+@import '../token.scss';
+
+.replace-list {
+    margin: 0;
+    padding: 0;
+    width: 400px;
+    li {
+        list-style: none;
+        padding: 4px;
+        font-size: 14px;
+        line-height: 20px;
+        border: 1px solid $color-dark;
+        border-width: 1px 0 1px;
+        background-color: $color-bg;
+        margin-top: -1px;
+        cursor: move;
+    }
+
+    .drag-over {
+        transition: border 0.2s;
+        background-color: $color-active;
+    }
+}
