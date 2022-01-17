@@ -2,47 +2,40 @@ import { useCallback, useRef } from 'react';
 
 const useDragDrop = ({
     onDragStart,
+    onDragEnter,
+    onDragOver,
+    onDragLeave,
     onDragEnd,
     onDrop,
-    onDragEnter,
-    onDragLeave,
-    onDragOver,
     effectAllowed,
     dropEffect,
     ignoreChildEnterLeave,
     ignoreSelf
 }: {
+    /** when drag start */
     onDragStart?: (source: Element) => void;
-    onDragEnd?: (source: Element) => void;
-    onDrop?: (source: Element, target: Element) => void;
+    /** drag enter the droppable element */
     onDragEnter?: (source: Element, target: Element) => void;
-    onDragLeave?: (source: Element, target: Element) => void;
+    /** drag over the droppable element, frequent trigger */
     onDragOver?: (source: Element, target: Element) => void;
+    /** drag leave the droppable element  */
+    onDragLeave?: (source: Element, target: Element) => void;
+    /** drop on a droppable element */
+    onDrop?: (source: Element, target: Element) => void;
+    /** release drag or press esc or drop on a invalid element */
+    onDragEnd?: (source: Element) => void;
+    /** set the effectAllowed when dragStart */
     effectAllowed?: DataTransfer['effectAllowed'];
+    /** set dropEffect when dragOver */
     dropEffect?: DataTransfer['dropEffect'];
+    /** don't call enter or leave when enter a child element of current dragEnter element */
     ignoreChildEnterLeave?: boolean;
+    /** ignore dragOver, dragOver, dragLeave, drop events on the dragged element */
     ignoreSelf?: boolean;
 }) => {
     const sourceDomRef = useRef(null);
     const prevTargetDomRef = useRef(null);
     const enterCounterRef = useRef(0);
-
-    const handleDragStart = useCallback(
-        e => {
-            sourceDomRef.current = e.currentTarget;
-            e.dataTransfer.effectAllowed = effectAllowed;
-            enterCounterRef.current = 0;
-            prevTargetDomRef.current = null;
-            onDragStart?.(e.currentTarget);
-        },
-        [effectAllowed]
-    );
-    const handleDragEnd = useCallback(e => {
-        sourceDomRef.current = null;
-        enterCounterRef.current = 0;
-        prevTargetDomRef.current = null;
-        onDragEnd?.(e.currentTarget);
-    }, []);
 
     const checkEvent = useCallback(e => {
         if (!sourceDomRef.current) return false;
@@ -50,18 +43,26 @@ const useDragDrop = ({
         return true;
     }, []);
 
-    const handleDrop = useCallback(
-        e => {
-            if (!checkEvent(e)) return;
-            onDrop?.(sourceDomRef.current!, e.currentTarget);
-        },
-        [onDrop]
-    );
-    const handleDragOver = useCallback(e => {
-        if (!checkEvent(e)) return;
-        e.preventDefault();
-        onDragOver?.(sourceDomRef.current!, e.currentTarget);
+    const clean = useCallback(() => {
+        sourceDomRef.current = null;
+        prevTargetDomRef.current = null;
+        enterCounterRef.current = 0;
     }, []);
+
+    const handleDragStart = useCallback(
+        e => {
+            clean();
+            sourceDomRef.current = e.currentTarget;
+            e.dataTransfer.effectAllowed = effectAllowed;
+            onDragStart?.(e.currentTarget);
+        },
+        [effectAllowed]
+    );
+    const handleDragEnd = useCallback(e => {
+        onDragEnd?.(e.currentTarget);
+        clean();
+    }, []);
+
     const handleDragEnter = useCallback(
         e => {
             if (!checkEvent(e)) return;
@@ -80,6 +81,11 @@ const useDragDrop = ({
         },
         [onDragEnter]
     );
+    const handleDragOver = useCallback(e => {
+        if (!checkEvent(e)) return;
+        e.preventDefault();
+        onDragOver?.(sourceDomRef.current!, e.currentTarget);
+    }, []);
     const handleDragLeave = useCallback(
         e => {
             if (!checkEvent(e)) return;
@@ -95,6 +101,14 @@ const useDragDrop = ({
         },
         [onDragLeave]
     );
+    const handleDrop = useCallback(
+        e => {
+            if (!checkEvent(e)) return;
+            onDrop?.(sourceDomRef.current!, e.currentTarget);
+            clean();
+        },
+        [onDrop]
+    );
 
     const sourceProps = {
         draggable: true,
@@ -102,10 +116,10 @@ const useDragDrop = ({
         onDragEnd: handleDragEnd
     };
     const targetProps = {
-        onDrop: handleDrop,
         onDragEnter: handleDragEnter,
         onDragOver: handleDragOver,
-        onDragLeave: handleDragLeave
+        onDragLeave: handleDragLeave,
+        onDrop: handleDrop
     };
     return [sourceProps, targetProps];
 };

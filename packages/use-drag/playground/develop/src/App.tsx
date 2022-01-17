@@ -1,4 +1,5 @@
-import { HTMLAttributes, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
+
 import './App.css';
 import useDragDrop from '../../../index';
 
@@ -15,7 +16,6 @@ const DragList = () => {
             cloneList.splice(j, 0, ...cloneList.splice(i, 1));
             return cloneList;
         });
-        console.log(source, target);
     }, []);
     const onDragEnter = useCallback((source, target) => {
         console.log('enter');
