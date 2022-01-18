@@ -18,7 +18,6 @@ const DragList = () => {
 
         target.classList.add('drag-over');
         console.log(target.classList);
-        
     }, []);
     const onDragLeave = useCallback((source, target) => {
         console.log('leave');
@@ -35,20 +34,23 @@ const DragList = () => {
     const dragItem = <div className='drag-item' {...sourceProps}></div>;
 
     return (
-        <div className='playground'>
-            <div className='drag-zone' {...(blankDroppable ? targetProps : {})}>
-                <Switch on={blankDroppable} onChange={setBlankDroppable} />
+        <div className='drag-zone' {...(blankDroppable ? targetProps : {})}>
+            <div className='controls'>
                 <div>
-                    <div className='drop-zone' data-zone-id='a' {...targetProps}>
-                        {place === 'a' && dragItem}
-                    </div>
-                    <div className='drop-zone' data-zone-id='b' {...targetProps}>
-                        {place === 'b' && dragItem}
-                    </div>
+                    <label>outer droppable: </label>
+                    <Switch on={blankDroppable} onChange={setBlankDroppable} />
                 </div>
-                <div className='blank' data-zone-id='blank'>
-                    {place === 'blank' && dragItem}
+            </div>
+            <div>
+                <div className='drop-zone' data-zone-id='a' {...targetProps}>
+                    {place === 'a' && dragItem}
                 </div>
+                <div className='drop-zone' data-zone-id='b' {...targetProps}>
+                    {place === 'b' && dragItem}
+                </div>
+            </div>
+            <div className='blank' data-zone-id='blank'>
+                {place === 'blank' && dragItem}
             </div>
         </div>
     );

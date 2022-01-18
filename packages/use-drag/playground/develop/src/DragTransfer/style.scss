@@ -1,0 +1,31 @@
+@import '../token.scss';
+
+.drag-transfer {
+    .main-container {
+        display: flex;
+
+        .from-container,
+        .to-container {
+            flex: 1;
+            margin: 0 8px;
+
+            .list {
+                height: 300px;
+                overflow: auto;
+                &.drag-over {
+                    background-color: $color-active;
+                }
+            }
+        }
+        .to-container .list {
+            margin-left: 16px;
+        }
+        .from-container .list {
+            margin-right: 16px;
+        }
+    }
+    .item {
+        text-align: center;
+        border: 1px solid $color-tiny;
+    }
+}

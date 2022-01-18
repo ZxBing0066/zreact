@@ -34,16 +34,14 @@ const DragReplaceList = () => {
     });
 
     return (
-        <div className='playground'>
-            <ul className='replace-list'>
-                {list.map((v, i) => (
-                    <li key={v} {...sourceProps} {...targetProps} data-index={i} data-v={v}>
-                        <span>list</span>
-                        <span> - {v}</span>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <ul className='replace-list'>
+            {list.map((v, i) => (
+                <li key={v} {...sourceProps} {...targetProps} data-index={i} data-v={v}>
+                    <span>list</span>
+                    <span> - {v}</span>
+                </li>
+            ))}
+        </ul>
     );
 };
 

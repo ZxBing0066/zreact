@@ -40,16 +40,14 @@ const DragList = () => {
     });
 
     return (
-        <div className='playground'>
-            <ul className='drag-list'>
-                {list.map((v, i) => (
-                    <li key={v} {...sourceProps} {...targetProps} data-index={i} data-v={v}>
-                        <span>list</span>
-                        <span> - {v}</span>
-                    </li>
-                ))}
-            </ul>
-        </div>
+        <ul className='drag-list'>
+            {list.map((v, i) => (
+                <li key={v} {...sourceProps} {...targetProps} data-index={i} data-v={v}>
+                    <span>list</span>
+                    <span> - {v}</span>
+                </li>
+            ))}
+        </ul>
     );
 };
 

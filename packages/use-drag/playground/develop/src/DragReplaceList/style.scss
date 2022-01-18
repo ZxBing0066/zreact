@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     width: 400px;
+    border: 1px solid $color-primary;
+    border-bottom: 0;
     li {
         list-style: none;
         padding: 4px;
@@ -14,10 +16,11 @@
         background-color: $color-bg;
         margin-top: -1px;
         cursor: move;
+        will-change: background;
+        transition: background 0.2s;
     }
 
     .drag-over {
-        transition: border 0.2s;
         background-color: $color-active;
     }
 }

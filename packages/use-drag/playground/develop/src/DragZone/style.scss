@@ -21,4 +21,8 @@
     .drop-zone.drag-over {
         background-color: $color-active;
     }
+    .controls {
+        padding: 4px 0;
+        display: flex;
+    }
 }
