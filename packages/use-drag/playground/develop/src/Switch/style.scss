@@ -4,18 +4,17 @@
     width: 40px;
     display: inline-block;
     line-height: 20px;
-    color: $color-primary;
-    border: 1px solid $color-primary;
+    border: 1px solid $color-border;
     text-align: center;
     cursor: pointer;
     user-select: none;
     transition: color 0.5s, background 0.5s;
     &.on {
-        color: $color-dark;
-        background-color: $color-light;
+        color: lighten(#cc163a, 40);
+        background-color: #cc163a;
     }
     &.off {
-        background-color: $color-dark;
-        color: $color-light;
+        color: lighten(#69a794, 40);
+        background-color: #69a794;
     }
 }

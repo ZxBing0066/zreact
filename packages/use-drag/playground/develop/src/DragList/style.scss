@@ -4,14 +4,14 @@
     margin: 0;
     padding: 0;
     width: 400px;
-    border: 1px solid $color-primary;
+    border: 1px solid $color-border;
     border-bottom: 0;
     li {
         list-style: none;
         padding: 4px;
         font-size: 14px;
         line-height: 20px;
-        border: 1px solid $color-dark;
+        border: 1px solid $color-border;
         border-width: 1px 0 1px;
         background-color: $color-bg;
         margin-top: -1px;
@@ -21,9 +21,9 @@
     }
 
     .drag-over-up {
-        border-top: 3px solid $color-active;
+        border-top: 3px dashed $color-border-active;
     }
     .drag-over-down {
-        border-bottom: 3px solid $color-active;
+        border-bottom: 3px dashed $color-border-active;
     }
 }

@@ -7,3 +7,13 @@ $color-active: #ceeddb;
 $color-secondary: #fbfbfb;
 $color-highlight: #edd4b2;
 $color-bg: #ecdcc9;
+
+$color-primary: #815c94;
+$color-font: darken($color-primary, 10);
+$color-font-active: lighten($color-font, 10);
+$color-border: darken($color-primary, 20);
+$color-border-active: lighten($color-border, 20);
+$color-bg: #e2e1e4;
+$color-bg-active: lighten($color-primary, 80);
+
+$color-light: lighten($color-primary, 30);

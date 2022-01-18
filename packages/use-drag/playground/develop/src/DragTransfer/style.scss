@@ -10,10 +10,10 @@
             margin: 0 8px;
 
             .list {
-                height: 300px;
+                height: 400px;
                 overflow: auto;
                 &.drag-over {
-                    background-color: $color-active;
+                    background-color: $color-bg-active;
                 }
             }
         }
@@ -26,6 +26,7 @@
     }
     .item {
         text-align: center;
-        border: 1px solid $color-tiny;
+        border: 1px solid $color-border;
+        padding: 4px;
     }
 }

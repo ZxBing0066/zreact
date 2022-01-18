@@ -3,9 +3,10 @@
 body {
     padding: 16px;
     background-color: $color-bg;
+    color: $color-font;
 }
 
 .playground {
-    border: 1px solid $color-dark;
+    border: 1px solid $color-border;
     padding: 8px;
 }

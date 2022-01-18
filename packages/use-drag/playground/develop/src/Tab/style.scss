@@ -6,10 +6,10 @@
 
         .title {
             padding: 4px 8px;
-            border: 1px solid $color-dark;
+            border: 1px solid $color-border;
             cursor: pointer;
             &[data-active='true'] {
-                background-color: $color-active;
+                background-color: $color-bg-active;
             }
         }
     }
