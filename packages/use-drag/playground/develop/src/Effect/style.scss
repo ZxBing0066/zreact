@@ -1,0 +1,28 @@
+@import '../token.scss';
+
+.drag-zone {
+    .drag-item {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: $color-primary;
+    }
+    .drop-zone {
+        width: 300px;
+        height: 300px;
+        border: 1px solid $color-border;
+        float: left;
+    }
+    .blank {
+        clear: both;
+        height: 100px;
+    }
+    &.drag-over,
+    .drop-zone.drag-over {
+        background-color: $color-bg-active;
+    }
+    .controls {
+        padding: 4px 0;
+        display: flex;
+    }
+}
