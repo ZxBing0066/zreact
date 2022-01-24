@@ -37,11 +37,14 @@ const useDragDrop = ({
     const prevTargetDomRef = useRef(null);
     const enterCounterRef = useRef(0);
 
-    const checkEvent = useCallback(e => {
-        if (!sourceDomRef.current) return false;
-        if (ignoreSelf && sourceDomRef.current === e.currentTarget) return false;
-        return true;
-    }, []);
+    const checkEvent = useCallback(
+        e => {
+            if (!sourceDomRef.current) return false;
+            if (ignoreSelf && sourceDomRef.current === e.currentTarget) return false;
+            return true;
+        },
+        [ignoreSelf]
+    );
 
     const clean = useCallback(() => {
         sourceDomRef.current = null;
@@ -56,12 +59,15 @@ const useDragDrop = ({
             e.dataTransfer.effectAllowed = effectAllowed;
             onDragStart?.(e.currentTarget);
         },
-        [effectAllowed]
+        [clean, effectAllowed, onDragStart]
     );
-    const handleDragEnd = useCallback(e => {
-        onDragEnd?.(e.currentTarget);
-        clean();
-    }, []);
+    const handleDragEnd = useCallback(
+        e => {
+            onDragEnd?.(e.currentTarget);
+            clean();
+        },
+        [clean, onDragEnd]
+    );
 
     const handleDragEnter = useCallback(
         e => {
@@ -79,13 +85,18 @@ const useDragDrop = ({
             }
             onDragEnter?.(sourceDomRef.current!, e.currentTarget);
         },
-        [onDragEnter]
+        [checkEvent, dropEffect, ignoreChildEnterLeave, onDragEnter]
     );
-    const handleDragOver = useCallback(e => {
-        if (!checkEvent(e)) return;
-        e.preventDefault();
-        onDragOver?.(sourceDomRef.current!, e.currentTarget);
-    }, []);
+    const handleDragOver = useCallback(
+        e => {
+            if (!checkEvent(e)) return;
+            e.preventDefault();
+            e.dataTransfer.dropEffect = dropEffect;
+
+            onDragOver?.(sourceDomRef.current!, e.currentTarget);
+        },
+        [checkEvent, dropEffect, onDragOver]
+    );
     const handleDragLeave = useCallback(
         e => {
             if (!checkEvent(e)) return;
@@ -99,7 +110,7 @@ const useDragDrop = ({
             }
             onDragLeave?.(sourceDomRef.current!, e.currentTarget);
         },
-        [onDragLeave]
+        [checkEvent, ignoreChildEnterLeave, onDragLeave]
     );
     const handleDrop = useCallback(
         e => {
@@ -107,7 +118,7 @@ const useDragDrop = ({
             onDrop?.(sourceDomRef.current!, e.currentTarget);
             clean();
         },
-        [onDrop]
+        [checkEvent, clean, onDrop]
     );
 
     const sourceProps = {
