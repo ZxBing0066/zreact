@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
 
 import './style.scss';
-import useDragDrop from '../../../../index';
+import useDragDrop from '../../../index';
 
 const array = new Array(20).fill(null).map((v, i) => i);
 

@@ -1,8 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 
-import useDragDrop from '../../../../index';
+import useDragDrop from '../../../index';
 import './style.scss';
-import Switch from '../Switch';
 
 const KeyCodeOfA = 'A'.charCodeAt(0);
 
@@ -53,26 +52,26 @@ const DragTransfer = () => {
     });
 
     return (
-        <div className='drag-transfer'>
-            <div className='controls'>
+        <div className="drag-transfer">
+            <div className="controls">
                 <div></div>
             </div>
-            <div className='main-container'>
-                <div className='from-container'>
+            <div className="main-container">
+                <div className="from-container">
                     <h2>from</h2>
-                    <div className='list' data-zone-id='from' {...targetProps}>
+                    <div className="list" data-zone-id="from" {...targetProps}>
                         {fromDataList.map(({ key, title }) => (
-                            <div key={key} data-key={key} className='item' {...sourceProps}>
+                            <div key={key} data-key={key} className="item" {...sourceProps}>
                                 {title}
                             </div>
                         ))}
                     </div>
                 </div>
-                <div className='to-container'>
+                <div className="to-container">
                     <h2>to</h2>
-                    <div className='list' data-zone-id='to' {...targetProps}>
+                    <div className="list" data-zone-id="to" {...targetProps}>
                         {toDataList.map(({ key, title }) => (
-                            <div key={key} data-key={key} className='item' {...sourceProps}>
+                            <div key={key} data-key={key} className="item" {...sourceProps}>
                                 {title}
                             </div>
                         ))}

@@ -33,9 +33,6 @@
     "types"
   ],
   "sideEffects": false,
-  "devDependencies": {
-    "react": "^16.3"
-  },
   "peerDependencies": {
     "react": "^16.3 || ^17"
   }
