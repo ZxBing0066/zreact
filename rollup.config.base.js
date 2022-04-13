@@ -1,10 +1,11 @@
 import tsPlugin from '@rollup/plugin-typescript';
 import path from 'path';
+import jsx from 'rollup-plugin-jsx';
 
 const cwd = process.cwd();
 const resolvePath = _path => path.resolve(cwd, _path);
 
-export default {
+const config = {
     input: resolvePath('./index.ts'),
     output: [
         {
@@ -22,6 +23,8 @@ export default {
         ...output,
         file: resolvePath(output.file)
     })),
-    plugins: [tsPlugin()],
+    plugins: [tsPlugin(), jsx({ factory: 'React.createElement' })],
     external: ['react']
 };
+
+export default config;
