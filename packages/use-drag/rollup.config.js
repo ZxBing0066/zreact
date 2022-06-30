@@ -1,3 +1,3 @@
-import config from '../../rollup.config.base.js';
+import getConfig from '../../rollup.config.base.js';
 
-export default config;
+export default getConfig('useDrag');

@@ -105,5 +105,6 @@ dist
 
 cjs
 esm
+umd
 types
 .vscode

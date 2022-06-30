@@ -2,9 +2,11 @@
   "name": "z-use-virtual-list",
   "version": "0.0.1",
   "description": "A tiny react hook for use virtual list",
-  "main": "index.js",
+  "main": "cjs/index.cjs",
   "module": "esm/index.js",
-  "types": "./types/index.d.ts",
+  "types": "types/index.d.ts",
+  "unpkg": "umd/index.min.js",
+  "jsdelivr": "umd/index.min.js",
   "scripts": {
     "build": "pnpx tsc && pnpx rollup -c rollup.config.js"
   },
@@ -34,6 +36,6 @@
   ],
   "sideEffects": false,
   "peerDependencies": {
-    "react": "^16.3 || ^17"
+    "react": "^16.3 || ^17 || ^18"
   }
 }
