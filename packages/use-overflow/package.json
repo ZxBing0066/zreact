@@ -1,24 +1,24 @@
 {
-  "name": "z-use-drag",
-  "version": "1.2.2",
-  "description": "A tiny react hook for drag move elements",
+  "name": "@zreact/use-overflow",
+  "version": "0.0.1",
+  "description": "A react hook to make overflow items ellipsis",
   "main": "cjs/index.cjs",
   "module": "esm/index.js",
-  "types": "./types/index.d.ts",
+  "types": "types/index.d.ts",
   "scripts": {
     "build": "pnpx tsc && pnpx rollup -c rollup.config.js"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/ZxBing0066/zreact.git",
-    "directory": "packages/use-drag"
+    "directory": "packages/use-overflow"
   },
   "keywords": [
     "react",
-    "drag",
-    "move",
-    "sort",
-    "hook"
+    "hook",
+    "overflow",
+    "auto",
+    "ellipsis"
   ],
   "author": "ZxBing0066",
   "license": "MIT",
@@ -34,6 +34,10 @@
   ],
   "sideEffects": false,
   "peerDependencies": {
-    "react": "^16.8 || ^17 || ^18"
+    "react": "^16.8 || ^17 || ^18",
+    "resize-observer-polyfill": "^1.5.1"
+  },
+  "devDependencies": {
+    "resize-observer-polyfill": "^1.5.1"
   }
 }

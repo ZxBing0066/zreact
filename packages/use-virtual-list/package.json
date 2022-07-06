@@ -1,5 +1,5 @@
 {
-  "name": "z-use-virtual-list",
+  "name": "@zreact/use-virtual-list",
   "version": "0.0.1",
   "description": "A tiny react hook for use virtual list",
   "main": "cjs/index.cjs",
@@ -36,6 +36,6 @@
   ],
   "sideEffects": false,
   "peerDependencies": {
-    "react": "^16.3 || ^17 || ^18"
+    "react": "^16.8 || ^17 || ^18"
   }
 }
