@@ -8,9 +8,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@zreact/use-overflow": "workspace:^0.0.1",
+    "@zreact/use-overflow": "workspace:^1.0.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",

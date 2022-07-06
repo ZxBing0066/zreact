@@ -6,6 +6,7 @@
   "module": "esm/index.js",
   "types": "types/index.d.ts",
   "scripts": {
+    "dev": "pnpx rollup -c rollup.config.js --watch",
     "build": "pnpx tsc && pnpx rollup -c rollup.config.js"
   },
   "repository": {

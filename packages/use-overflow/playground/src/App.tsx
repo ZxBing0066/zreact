@@ -11,8 +11,8 @@ function App() {
         });
     });
     const [count] = useOverflow({
-        containerRef: containerRef,
-        total: tags.length
+        containerRef,
+        maxCount: tags.length
     });
     const VisibleTags = useMemo(() => {
         return tags.slice(0, count).map((tag, i) => {

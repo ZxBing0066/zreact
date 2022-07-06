@@ -6,7 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 const cwd = process.cwd();
 const resolvePath = _path => path.resolve(cwd, _path);
 
-const getConfig = name => {
+const getConfig = (name, { external = [] } = {}) => {
     const config = {
         input: resolvePath('./index.ts'),
         output: [
@@ -23,7 +23,7 @@ const getConfig = name => {
             }
         ],
         plugins: [tsPlugin(), jsx({ factory: 'React.createElement' })],
-        external: ['react']
+        external: ['react', ...external]
     };
     if (name) {
         config.output.push(
