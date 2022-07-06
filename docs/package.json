@@ -1,0 +1,16 @@
+{
+  "name": "@zreact/docs",
+  "version": "1.0.0",
+  "description": "Docs for zreact libs",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "rvpress dev"
+  },
+  "author": "ZxBing0066",
+  "license": "MIT",
+  "dependencies": {
+    "rvpress": "^0.1.8"
+  }
+}
