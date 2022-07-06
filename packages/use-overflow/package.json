@@ -1,6 +1,6 @@
 {
   "name": "@zreact/use-overflow",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A react hook to make overflow items ellipsis",
   "main": "cjs/index.cjs",
   "module": "esm/index.js",
