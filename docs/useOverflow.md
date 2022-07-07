@@ -9,7 +9,7 @@
 -   标签组自动缩略
 -   按钮组宽度不够缩略为更多
 
-![](./images/button-demo.png)
+![](images/button-demo.png)
 ![](images/tag-demo.png)
 
 ## 安装

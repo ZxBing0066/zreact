@@ -6,7 +6,8 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "rvpress dev"
+    "dev": "rvpress dev",
+    "build": "rvpress build"
   },
   "author": "ZxBing0066",
   "license": "MIT",

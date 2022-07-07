@@ -2,4 +2,4 @@
 
 横向元素超出自动省略
 
-![](../../docs/images/gif-demo.gif)
+![](../../docs/public/images/gif-demo.gif)
