@@ -1,5 +1,17 @@
 # useOverflow
 
+## 使用场景
+
+当使用横向控件组，容器宽度未知，又不希望控件超出容器范围或换行时，可以使用 `useOverflow` 来让控件自动调整宽度。
+
+常见使用场景如：
+
+-   标签组自动缩略
+-   按钮组宽度不够缩略为更多
+
+![](./images/button-demo.png)
+![](images/tag-demo.png)
+
 ## 安装
 
 ```sh
@@ -20,3 +32,39 @@ const [count, measuredCount] = useOverflow({
 ## API
 
 ## DEMO
+
+简单场景
+
+<iframe src="https://codesandbox.io/embed/use-overflow-demo-3wf8c4?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="use-overflow demo"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+内容可变场景
+
+<iframe src="https://codesandbox.io/embed/use-overflow-demo-editable-4eb7ky?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="use-overflow demo editable"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+内容可编辑场景
+
+<iframe src="https://codesandbox.io/embed/use-overflow-demo-inputable-pzsde4?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="use-overflow demo inputable"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+按钮组
+
+<iframe src="https://codesandbox.io/embed/use-overflow-button-demo-0eby5y?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="use-overflow button demo"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
