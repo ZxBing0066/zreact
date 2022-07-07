@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>useOverflow | @ZReact</title>
+        <meta name="description" content="A RVPress site">
+        <link rel="stylesheet" href="/assets/style.1d4f4c30.css">
+        <link rel="modulepreload" href="/assets/index.97b01244.js">
+    <link rel="modulepreload" href="/assets/Home.7b02b75b.js">
+    <link rel="modulepreload" href="/assets/useOverflow.md.b43febb9.lean.js">
+    <link rel="modulepreload" href="/assets/app.fb33141b.js">
+        
+        <meta name="twitter:title" content="useOverflow | @ZReact">
+  <meta property="og:title" content="useOverflow | @ZReact">
+    </head>
+    <body>
+        <div id="app"><div class="theme"><header class="nav-bar _nav-bar_ckj88_1"><div class="sidebar-button _sidebar-button_1uy08_1"><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div><a class="nav-bar-title _nav-bar-title_1glrg_1" href="/" aria-label="`${site.title}, back to home`">@ZReact</a><div class="flex-grow"></div><div class="nav"></div></header><aside class="sidebar _sidebar_1ycdo_1"><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#使用场景">使用场景</a></li><li class="sidebar-link"><a class="sidebar-link-item" href="#安装">安装</a></li><li class="sidebar-link"><a class="sidebar-link-item" href="#使用">使用</a></li><li class="sidebar-link"><a class="sidebar-link-item" href="#api">API</a></li><li class="sidebar-link"><a class="sidebar-link-item" href="#demo">DEMO</a></li></ul></aside><main class="page _page_12mxx_1"><div class="page-container"><div style="position:relative" class="content"><div><h1 id="useoverflow" tabindex="-1">useOverflow <a class="header-anchor" href="#useoverflow" aria-hidden="true">#</a></h1>
+<h2 id="使用场景" tabindex="-1">使用场景 <a class="header-anchor" href="#使用场景" aria-hidden="true">#</a></h2>
+<p>当使用横向控件组，容器宽度未知，又不希望控件超出容器范围或换行时，可以使用 <code>useOverflow</code> 来让控件自动调整宽度。</p>
+<p>常见使用场景如：</p>
+<ul>
+<li>标签组自动缩略</li>
+<li>按钮组宽度不够缩略为更多</li>
+</ul>
+<p><img src="images/button-demo.png" alt="">
+<img src="images/tag-demo.png" alt=""></p>
+<h2 id="安装" tabindex="-1">安装 <a class="header-anchor" href="#安装" aria-hidden="true">#</a></h2>
+<div class="language-sh"><pre><code>npm install @zreact/use-overflow
+</code></pre>
+</div><h2 id="使用" tabindex="-1">使用 <a class="header-anchor" href="#使用" aria-hidden="true">#</a></h2>
+<div class="language-jsx"><pre><code><span class="token comment">// count 为当前使用的测量数量</span>
+<span class="token comment">// measuredCount 为经过测量后最终得到的合适的数</span>
+<span class="token keyword">const</span> <span class="token punctuation">[</span>count<span class="token punctuation">,</span> measuredCount<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useOverflow</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token literal-property property">containerRef</span><span class="token operator">:</span> containerRef<span class="token punctuation">,</span> <span class="token comment">// 外层容器的 ref</span>
+    <span class="token literal-property property">total</span><span class="token operator">:</span> tags<span class="token punctuation">.</span>length <span class="token comment">// 项目的总数</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+</div><h2 id="api" tabindex="-1">API <a class="header-anchor" href="#api" aria-hidden="true">#</a></h2>
+<h2 id="demo" tabindex="-1">DEMO <a class="header-anchor" href="#demo" aria-hidden="true">#</a></h2>
+<p>简单场景</p>
+<iframe src="https://codesandbox.io/embed/use-overflow-demo-3wf8c4?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="use-overflow demo"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+<p>内容可变场景</p>
+<iframe src="https://codesandbox.io/embed/use-overflow-demo-editable-4eb7ky?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="use-overflow demo editable"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+<p>内容可编辑场景</p>
+<iframe src="https://codesandbox.io/embed/use-overflow-demo-inputable-pzsde4?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="use-overflow demo inputable"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+<p>按钮组</p>
+<iframe src="https://codesandbox.io/embed/use-overflow-button-demo-0eby5y?autoresize=1&fontsize=14&hidenavigation=1&theme=dark"
+    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    title="use-overflow button demo"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+</div></div><footer class="page-footer _page-footer_24oyl_1"><div class="edit"><div class="edit-link _edit-link_192ag_1"></div></div><div class="updated"></div></footer></div></main></div></div>
+        <script>__RVP_HASH_MAP__ = JSON.parse("{\"index.md\":\"48d1d5a2\",\"useoverflow.md\":\"b43febb9\"}")</script>
+        <script type="module" async src="/assets/app.fb33141b.js"></script>
+        
+    </body>
+</html>
