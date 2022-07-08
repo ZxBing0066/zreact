@@ -1,6 +1,6 @@
-import"./index.97b01244.js";const a='{"title":"useOverflow","description":"","frontmatter":{},"headers":[{"level":2,"title":"\u4F7F\u7528\u573A\u666F","slug":"\u4F7F\u7528\u573A\u666F"},{"level":2,"title":"\u5B89\u88C5","slug":"\u5B89\u88C5"},{"level":2,"title":"\u4F7F\u7528","slug":"\u4F7F\u7528"},{"level":2,"title":"API","slug":"api"},{"level":2,"title":"DEMO","slug":"demo"}],"relativePath":"useOverflow.md","createTime":1657237874000,"lastUpdated":1657237874000}';var n=()=>`<h1 id="useoverflow" tabindex="-1">useOverflow <a class="header-anchor" href="#useoverflow" aria-hidden="true">#</a></h1>
+import"./index.97b01244.js";const a='{"title":"use-overflow","description":"","frontmatter":{},"headers":[{"level":2,"title":"\u4F7F\u7528\u573A\u666F","slug":"\u4F7F\u7528\u573A\u666F"},{"level":2,"title":"\u5B89\u88C5","slug":"\u5B89\u88C5"},{"level":2,"title":"\u4F7F\u7528","slug":"\u4F7F\u7528"},{"level":2,"title":"API","slug":"api"},{"level":2,"title":"DEMO","slug":"demo"}],"relativePath":"useOverflow.md","createTime":1657266272000,"lastUpdated":1657266272000}';var o=()=>`<h1 id="use-overflow" tabindex="-1">use-overflow <a class="header-anchor" href="#use-overflow" aria-hidden="true">#</a></h1>
 <h2 id="\u4F7F\u7528\u573A\u666F" tabindex="-1">\u4F7F\u7528\u573A\u666F <a class="header-anchor" href="#\u4F7F\u7528\u573A\u666F" aria-hidden="true">#</a></h2>
-<p>\u5F53\u4F7F\u7528\u6A2A\u5411\u63A7\u4EF6\u7EC4\uFF0C\u5BB9\u5668\u5BBD\u5EA6\u672A\u77E5\uFF0C\u53C8\u4E0D\u5E0C\u671B\u63A7\u4EF6\u8D85\u51FA\u5BB9\u5668\u8303\u56F4\u6216\u6362\u884C\u65F6\uFF0C\u53EF\u4EE5\u4F7F\u7528 <code>useOverflow</code> \u6765\u8BA9\u63A7\u4EF6\u81EA\u52A8\u8C03\u6574\u5BBD\u5EA6\u3002</p>
+<p>\u5F53\u4F7F\u7528\u6A2A\u5411\u63A7\u4EF6\u7EC4\uFF0C\u5BB9\u5668\u5BBD\u5EA6\u672A\u77E5\uFF0C\u53C8\u4E0D\u5E0C\u671B\u63A7\u4EF6\u8D85\u51FA\u5BB9\u5668\u8303\u56F4\u6216\u6362\u884C\u65F6\uFF0C\u53EF\u4EE5\u4F7F\u7528 <code>use-overflow</code> \u6765\u8BA9\u63A7\u4EF6\u81EA\u52A8\u8C03\u6574\u5BBD\u5EA6\u3002</p>
 <p>\u5E38\u89C1\u4F7F\u7528\u573A\u666F\u5982\uFF1A</p>
 <ul>
 <li>\u6807\u7B7E\u7EC4\u81EA\u52A8\u7F29\u7565</li>
@@ -49,4 +49,4 @@ import"./index.97b01244.js";const a='{"title":"useOverflow","description":"","fr
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
-`;export{a as __pageData,n as default};
+`;export{a as __pageData,o as default};
