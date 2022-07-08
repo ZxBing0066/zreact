@@ -14,7 +14,7 @@ function App() {
         containerRef,
         maxCount: tags.length
     });
-    const VisibleTags = useMemo(() => {
+    const visibleTags = useMemo(() => {
         return tags.slice(0, count).map((tag, i) => {
             return (
                 <span className="tag" key={i}>
@@ -23,15 +23,15 @@ function App() {
             );
         });
     }, [count, tags]);
-    const Ellipsis = useMemo(() => {
+    const ellipsis = useMemo(() => {
         return count < tags.length ? <span className="tag">{tags.length - count} more...</span> : null;
     }, [count, tags.length]);
 
     return (
         <div>
             <div className="tags" ref={containerRef}>
-                {VisibleTags}
-                {Ellipsis}
+                {visibleTags}
+                {ellipsis}
             </div>
         </div>
     );

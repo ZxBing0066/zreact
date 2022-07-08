@@ -1,6 +1,6 @@
 import { HTMLAttributes, ReactNode, useRef } from 'react';
 
-import useVirtualList, { useSimpleVirtualList } from 'z-use-virtual-list';
+import useVirtualList, { useSimpleVirtualList } from '@zreact/use-virtual-list';
 
 const SimpleVirtualScrollList = ({
     children,

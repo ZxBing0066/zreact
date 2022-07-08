@@ -46,8 +46,15 @@ const useOverflow = (
     // the container element
     const [measuring, setMeasuring] = useState(true);
 
+    // save to ref for use in resize observer to avoid frequently create new observer
+    const measuringRef = useRef(measuring);
+    useEffect(() => {
+        measuringRef.current = measuring;
+    }, [measuring]);
+
     // start to measure
     const startMeasuring = useCallback(() => {
+        if (measuringRef.current) return;
         setMeasuring(true);
         setLatestValidCount(null);
     }, []);
@@ -65,28 +72,20 @@ const useOverflow = (
     }, deps);
 
     useEffect(() => {
-        // reset when latestValidCount changed
-        if (latestValidCount === null) return;
-        if (latestValidCount > maxCount || latestValidCount < minCount) startMeasuring();
-    }, [minCount, maxCount, latestValidCount, startMeasuring]);
+        // reset when config changed
+        startMeasuring();
+    }, [minCount, maxCount, startMeasuring]);
 
-    // save to ref for use in resize observer to avoid frequently create new observer
-    const measuringRef = useRef(measuring);
     useEffect(() => {
-        measuringRef.current = measuring;
-    }, [measuring]);
-
-    useLayoutEffect(() => {
         const containerDOM = containerRef?.current;
         let resizeObserver: ResizeObserver | null = null;
         if (containerDOM) {
             resizeObserver = new ResizeObserver(() => {
-                // TODO why did this called on initial render?
                 if (!measuringRef.current) {
                     startMeasuring();
                     // console.log('reset when width changed');
                 }
-                //  else {
+                // else {
                 //     console.log('lock when width changed');
                 // }
             });
@@ -99,9 +98,9 @@ const useOverflow = (
         };
     }, [containerRef, startMeasuring]);
 
-    // TODO why called twice?
     // console.log({ count, latestValidCount, maxCount, minCount, measuring });
 
+    // use layout effect to measure can avoid unnecessary shaking
     useLayoutEffect(() => {
         const containerDOM = containerRef?.current;
         if (!containerDOM) return;
