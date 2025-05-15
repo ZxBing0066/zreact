@@ -1,4 +1,4 @@
-import"./index.97b01244.js";const a='{"title":"use-overflow","description":"","frontmatter":{},"headers":[{"level":2,"title":"\u4F7F\u7528\u573A\u666F","slug":"\u4F7F\u7528\u573A\u666F"},{"level":2,"title":"\u5B89\u88C5","slug":"\u5B89\u88C5"},{"level":2,"title":"\u4F7F\u7528","slug":"\u4F7F\u7528"},{"level":2,"title":"API","slug":"api"},{"level":2,"title":"DEMO","slug":"demo"}],"relativePath":"useOverflow.md","createTime":1657266272000,"lastUpdated":1657266272000}';var o=()=>`<h1 id="use-overflow" tabindex="-1">use-overflow <a class="header-anchor" href="#use-overflow" aria-hidden="true">#</a></h1>
+import"./index.97b01244.js";const a='{"title":"use-overflow","description":"","frontmatter":{},"headers":[{"level":2,"title":"\u4F7F\u7528\u573A\u666F","slug":"\u4F7F\u7528\u573A\u666F"},{"level":2,"title":"\u5B89\u88C5","slug":"\u5B89\u88C5"},{"level":2,"title":"\u4F7F\u7528","slug":"\u4F7F\u7528"},{"level":2,"title":"API","slug":"api"},{"level":2,"title":"DEMO","slug":"demo"}],"relativePath":"useOverflow.md","createTime":1747309913000,"lastUpdated":1747309913000}';var o=()=>`<h1 id="use-overflow" tabindex="-1">use-overflow <a class="header-anchor" href="#use-overflow" aria-hidden="true">#</a></h1>
 <h2 id="\u4F7F\u7528\u573A\u666F" tabindex="-1">\u4F7F\u7528\u573A\u666F <a class="header-anchor" href="#\u4F7F\u7528\u573A\u666F" aria-hidden="true">#</a></h2>
 <p>\u5F53\u4F7F\u7528\u6A2A\u5411\u63A7\u4EF6\u7EC4\uFF0C\u5BB9\u5668\u5BBD\u5EA6\u672A\u77E5\uFF0C\u53C8\u4E0D\u5E0C\u671B\u63A7\u4EF6\u8D85\u51FA\u5BB9\u5668\u8303\u56F4\u6216\u6362\u884C\u65F6\uFF0C\u53EF\u4EE5\u4F7F\u7528 <code>use-overflow</code> \u6765\u8BA9\u63A7\u4EF6\u81EA\u52A8\u8C03\u6574\u5BBD\u5EA6\u3002</p>
 <p>\u5E38\u89C1\u4F7F\u7528\u573A\u666F\u5982\uFF1A</p>
@@ -6,8 +6,8 @@ import"./index.97b01244.js";const a='{"title":"use-overflow","description":"","f
 <li>\u6807\u7B7E\u7EC4\u81EA\u52A8\u7F29\u7565</li>
 <li>\u6309\u94AE\u7EC4\u5BBD\u5EA6\u4E0D\u591F\u7F29\u7565\u4E3A\u66F4\u591A</li>
 </ul>
-<p><img src="images/button-demo.png" alt="">
-<img src="images/tag-demo.png" alt=""></p>
+<p><img src="images/button-demo.png" alt="\u6309\u94AE\u7EC4\u5BBD\u5EA6\u4E0D\u591F\u7F29\u7565">
+<img src="images/tag-demo.png" alt="\u6807\u7B7E\u7EC4\u81EA\u52A8\u7F29\u7565"></p>
 <h2 id="\u5B89\u88C5" tabindex="-1">\u5B89\u88C5 <a class="header-anchor" href="#\u5B89\u88C5" aria-hidden="true">#</a></h2>
 <div class="language-sh"><pre><code>npm install @zreact/use-overflow
 </code></pre>
