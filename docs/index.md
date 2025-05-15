@@ -2,4 +2,4 @@
 
 横向元素超出自动省略
 
-![](images/gif-demo.gif)
+![元素超出自动省略 Hook demo](images/gif-demo.gif)
